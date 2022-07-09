@@ -103,6 +103,22 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("plugin", "git-junit");
 ```
 
+### Setting geolocation
+
+Option 1: To set geolocation, you can utilise the 'geolocation' capability like so:
+```Java
+   ltOptions.put("geoLocation", "US");
+```
+Option 2: To set geolocation, you can use `devTools` and `Emulation.setGeolocationOverride` like so:
+
+```java
+        // setGeolocationOverride() takes input lattitude, longitude and accuracy as
+        // parameters.
+        devTools.send(Emulation.setGeolocationOverride(Optional.of(28.622409),
+                Optional.of(77.364925),
+                Optional.of(1)));
+```
+
 ### Executing the Test
 
 **Step 4:** The tests can be executed in the terminal using the following command.
